@@ -1,12 +1,12 @@
 import sys, pygame, time
 pygame.init()
 
-FPS = 60
-size = width, height = 640, 480
+FPS = 30
+SIZE = WIDTH, HEIGHT = 640, 480
 speed = [1, 1]
-black = 0, 0, 0
+BLACK = 0, 0, 0
 
-screen = pygame.display.set_mode(size)
+screen = pygame.display.set_mode(SIZE)
 
 class Ball:
     def __init__(self):
@@ -53,12 +53,12 @@ while 1:
                 ball.change()
 
     ball.rect = ball.rect.move(speed)
-    if ball.rect.left < 0 or ball.rect.right > width:
+    if ball.rect.left < 0 or ball.rect.right > WIDTH:
         speed[0] = -speed[0]
-    if ball.rect.top < 0 or ball.rect.bottom > height:
+    if ball.rect.top < 0 or ball.rect.bottom > HEIGHT:
         speed[1] = -speed[1]
 
-    screen.fill(black)
+    screen.fill(BLACK)
     screen.blit(ball.img, ball.rect)
     pygame.display.flip()
     pygame.time.Clock().tick(FPS)
